@@ -1,0 +1,707 @@
+From 2aa336ea9abea6d721db91ce6cace451b475c343 Mon Sep 17 00:00:00 2001
+From: Michaela Friedman <michaelatatefriedman@gmail.com>
+Date: Sat, 6 Jun 2020 13:22:12 -0400
+Subject: [PATCH] Create Patch File
+
+---
+ 0001-Update-README-setupv8.patch |  25 ++++
+ package-lock.json                | 195 ++++++++++++++++++++++++++-----
+ src/.vs/slnx.sqlite              | Bin 0 -> 90112 bytes
+ src/App.tsx                      |  43 +++++--
+ src/Graph.tsx                    |  45 +++++--
+ 5 files changed, 261 insertions(+), 47 deletions(-)
+ create mode 100644 0001-Update-README-setupv8.patch
+ create mode 100644 src/.vs/slnx.sqlite
+
+diff --git a/0001-Update-README-setupv8.patch b/0001-Update-README-setupv8.patch
+new file mode 100644
+index 0000000..fe82169
+--- /dev/null
++++ b/0001-Update-README-setupv8.patch
+@@ -0,0 +1,25 @@
++From c8db81e2e786ff24ff6c256eb1307c44c16291dd Mon Sep 17 00:00:00 2001
++From: jbf-insidesherpa <54832297+jbf-insidesherpa@users.noreply.github.com>
++Date: Mon, 25 Nov 2019 09:32:31 +0800
++Subject: [PATCH] Update README (setupv8)
++
++---
++ README.md | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/README.md b/README.md
++index 6019f9b..8d2a7e4 100755
++--- a/README.md
+++++ b/README.md
++@@ -29,7 +29,7 @@ Implement JP Morgan Chase’s Perspective open source code in preparation for da
++ </ol>
++ 
++ <h2 id="installation" >Set up / Installation</h2>
++-<p>In order to get the server and client application code working on your machine, <a href="https://insidesherpa.s3.amazonaws.com/vinternships/companyassets/Sj7temL583QAYpHXD/setup_devenv_m2_v7.pdf">follow the setup here</a></p>
+++<p>In order to get the server and client application code working on your machine, <a href="https://insidesherpa.s3.amazonaws.com/vinternships/companyassets/Sj7temL583QAYpHXD/setup_devenv_m2_v8.pdf">follow the setup here</a></p>
++ 
++ <p><b>Note</b>:This is the version of the JPM 2 exercise that uses Python 3. The Python 2.7 version is in <a href="https://github.com/insidesherpa/JPMC-tech-task-2">this other repo</a></p>
++ 
++-- 
++2.26.2.windows.1
++
+diff --git a/package-lock.json b/package-lock.json
+index 3c8c001..7cb674f 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -1507,9 +1507,9 @@
+       "integrity": "sha512-2NVovndCjJQj6fUUn9jCgpP4WSqr+u1SoUZMZyJkhGeBFsm6dE46l31S7lPUYt9uQ28XI+ibrJA1f5XyH5HNtA=="
+     },
+     "@types/prop-types": {
+-      "version": "15.5.8",
+-      "resolved": "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.5.8.tgz",
+-      "integrity": "sha512-3AQoUxQcQtLHsK25wtTWIoIpgYjH3vSDroZOUr7PpCHw/jLY1RB9z9E8dBT/OSmwStVgkRNvdh+ZHNiomRieaw=="
++      "version": "15.7.3",
++      "resolved": "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.3.tgz",
++      "integrity": "sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw=="
+     },
+     "@types/q": {
+       "version": "1.5.1",
+@@ -1517,9 +1517,9 @@
+       "integrity": "sha512-eqz8c/0kwNi/OEHQfvIuJVLTst3in0e7uTKeuY+WL/zfKn0xVujOTp42bS/vUUokhK5P2BppLd9JXMOMHcgbjA=="
+     },
+     "@types/react": {
+-      "version": "16.7.22",
+-      "resolved": "https://registry.npmjs.org/@types/react/-/react-16.7.22.tgz",
+-      "integrity": "sha512-j/3tVoY09kHcTfbia4l67ofQn9xvktUvlC/4QN0KuBHAXlbU/wuGKMb8WfEb/vIcWxsOxHv559uYprkFDFfP8Q==",
++      "version": "16.9.35",
++      "resolved": "https://registry.npmjs.org/@types/react/-/react-16.9.35.tgz",
++      "integrity": "sha512-q0n0SsWcGc8nDqH2GJfWQWUOmZSJhXV64CjVN5SvcNti3TdEaA3AH0D8DwNmMdzjMAC/78tB8nAZIlV8yTz+zQ==",
+       "requires": {
+         "@types/prop-types": "*",
+         "csstype": "^2.2.0"
+@@ -1801,6 +1801,14 @@
+       "resolved": "https://registry.npmjs.org/address/-/address-1.0.3.tgz",
+       "integrity": "sha512-z55ocwKBRLryBs394Sm3ushTtBeg6VAeuku7utSoSnsJKvKcnXFIyC6vh27n3rXyxSgkJBBCAvyOn7gSUcTYjg=="
+     },
++    "agent-base": {
++      "version": "4.3.0",
++      "resolved": "https://registry.npmjs.org/agent-base/-/agent-base-4.3.0.tgz",
++      "integrity": "sha512-salcGninV0nPrwpGNn4VTXBb1SOuXQBiqbrNXoeizJsHrsL6ERFM2Ne3JUSBWRE6aeNJI2ROP/WEEIDUiDe3cg==",
++      "requires": {
++        "es6-promisify": "^5.0.0"
++      }
++    },
+     "ajv": {
+       "version": "6.7.0",
+       "resolved": "https://registry.npmjs.org/ajv/-/ajv-6.7.0.tgz",
+@@ -3679,6 +3687,11 @@
+       "resolved": "https://registry.npmjs.org/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz",
+       "integrity": "sha512-TEM2iMIEQdJ2yjPJoSIsldnleVaAk1oW3DBVUykyOLsEsFmEc9kn+SFFPz+gl54KQNxlDnAwCXosOS9Okx2xAg=="
+     },
++    "buffer-crc32": {
++      "version": "0.2.13",
++      "resolved": "https://registry.npmjs.org/buffer-crc32/-/buffer-crc32-0.2.13.tgz",
++      "integrity": "sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI="
++    },
+     "buffer-fill": {
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/buffer-fill/-/buffer-fill-1.0.0.tgz",
+@@ -4937,9 +4950,9 @@
+       }
+     },
+     "csstype": {
+-      "version": "2.6.2",
+-      "resolved": "https://registry.npmjs.org/csstype/-/csstype-2.6.2.tgz",
+-      "integrity": "sha512-Rl7PvTae0pflc1YtxtKbiSqq20Ts6vpIYOD5WBafl4y123DyHUeLrRdQP66sQW8/6gmX8jrYJLXwNeMqYVJcow=="
++      "version": "2.6.10",
++      "resolved": "https://registry.npmjs.org/csstype/-/csstype-2.6.10.tgz",
++      "integrity": "sha512-D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w=="
+     },
+     "cyclist": {
+       "version": "0.2.2",
+@@ -5527,6 +5540,19 @@
+         "es6-symbol": "^3.1.1"
+       }
+     },
++    "es6-promise": {
++      "version": "4.2.8",
++      "resolved": "https://registry.npmjs.org/es6-promise/-/es6-promise-4.2.8.tgz",
++      "integrity": "sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w=="
++    },
++    "es6-promisify": {
++      "version": "5.0.0",
++      "resolved": "https://registry.npmjs.org/es6-promisify/-/es6-promisify-5.0.0.tgz",
++      "integrity": "sha1-UQnWLz5W6pZ8S2NQWu8IKRyKUgM=",
++      "requires": {
++        "es6-promise": "^4.0.3"
++      }
++    },
+     "es6-symbol": {
+       "version": "3.1.1",
+       "resolved": "https://registry.npmjs.org/es6-symbol/-/es6-symbol-3.1.1.tgz",
+@@ -6179,6 +6205,45 @@
+         }
+       }
+     },
++    "extract-zip": {
++      "version": "1.7.0",
++      "resolved": "https://registry.npmjs.org/extract-zip/-/extract-zip-1.7.0.tgz",
++      "integrity": "sha512-xoh5G1W/PB0/27lXgMQyIhP5DSY/LhoCsOyZgb+6iMmRtCwVBo55uKaMoEYrDCKQhWvqEip5ZPKAc6eFNyf/MA==",
++      "requires": {
++        "concat-stream": "^1.6.2",
++        "debug": "^2.6.9",
++        "mkdirp": "^0.5.4",
++        "yauzl": "^2.10.0"
++      },
++      "dependencies": {
++        "debug": {
++          "version": "2.6.9",
++          "resolved": "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz",
++          "integrity": "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==",
++          "requires": {
++            "ms": "2.0.0"
++          }
++        },
++        "minimist": {
++          "version": "1.2.5",
++          "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz",
++          "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw=="
++        },
++        "mkdirp": {
++          "version": "0.5.5",
++          "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz",
++          "integrity": "sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==",
++          "requires": {
++            "minimist": "^1.2.5"
++          }
++        },
++        "ms": {
++          "version": "2.0.0",
++          "resolved": "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz",
++          "integrity": "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g="
++        }
++      }
++    },
+     "extsprintf": {
+       "version": "1.3.0",
+       "resolved": "https://registry.npmjs.org/extsprintf/-/extsprintf-1.3.0.tgz",
+@@ -6523,6 +6588,14 @@
+         "bser": "^2.0.0"
+       }
+     },
++    "fd-slicer": {
++      "version": "1.1.0",
++      "resolved": "https://registry.npmjs.org/fd-slicer/-/fd-slicer-1.1.0.tgz",
++      "integrity": "sha1-JcfInLH5B3+IkbvmHY85Dq4lbx4=",
++      "requires": {
++        "pend": "~1.2.0"
++      }
++    },
+     "figgy-pudding": {
+       "version": "3.5.1",
+       "resolved": "https://registry.npmjs.org/figgy-pudding/-/figgy-pudding-3.5.1.tgz",
+@@ -7089,11 +7162,13 @@
+         },
+         "balanced-match": {
+           "version": "1.0.0",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "brace-expansion": {
+           "version": "1.1.11",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "balanced-match": "^1.0.0",
+             "concat-map": "0.0.1"
+@@ -7106,15 +7181,18 @@
+         },
+         "code-point-at": {
+           "version": "1.1.0",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "concat-map": {
+           "version": "0.0.1",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "console-control-strings": {
+           "version": "1.1.0",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "core-util-is": {
+           "version": "1.0.2",
+@@ -7217,7 +7295,8 @@
+         },
+         "inherits": {
+           "version": "2.0.3",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "ini": {
+           "version": "1.3.5",
+@@ -7227,6 +7306,7 @@
+         "is-fullwidth-code-point": {
+           "version": "1.0.0",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "number-is-nan": "^1.0.0"
+           }
+@@ -7239,17 +7319,20 @@
+         "minimatch": {
+           "version": "3.0.4",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "brace-expansion": "^1.1.7"
+           }
+         },
+         "minimist": {
+           "version": "0.0.8",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "minipass": {
+           "version": "2.2.4",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "safe-buffer": "^5.1.1",
+             "yallist": "^3.0.0"
+@@ -7266,6 +7349,7 @@
+         "mkdirp": {
+           "version": "0.5.1",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "minimist": "0.0.8"
+           }
+@@ -7338,7 +7422,8 @@
+         },
+         "number-is-nan": {
+           "version": "1.0.1",
+-          "bundled": true
++          "bundled": true,
++          "optional": true
+         },
+         "object-assign": {
+           "version": "4.1.1",
+@@ -7348,6 +7433,7 @@
+         "once": {
+           "version": "1.4.0",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "wrappy": "1"
+           }
+@@ -7453,6 +7539,7 @@
+         "string-width": {
+           "version": "1.0.2",
+           "bundled": true,
++          "optional": true,
+           "requires": {
+             "code-point-at": "^1.0.0",
+             "is-fullwidth-code-point": "^1.0.0",
+@@ -8465,6 +8552,25 @@
+       "resolved": "https://registry.npmjs.org/https-browserify/-/https-browserify-1.0.0.tgz",
+       "integrity": "sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM="
+     },
++    "https-proxy-agent": {
++      "version": "2.2.4",
++      "resolved": "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-2.2.4.tgz",
++      "integrity": "sha512-OmvfoQ53WLjtA9HeYP9RNrWMJzzAz1JGaSFr1nijg0PVR1JaD/xbJq1mdEIIlxGpXp9eSe/O2LgU9DJmTPd0Eg==",
++      "requires": {
++        "agent-base": "^4.3.0",
++        "debug": "^3.1.0"
++      },
++      "dependencies": {
++        "debug": {
++          "version": "3.2.6",
++          "resolved": "https://registry.npmjs.org/debug/-/debug-3.2.6.tgz",
++          "integrity": "sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==",
++          "requires": {
++            "ms": "^2.1.1"
++          }
++        }
++      }
++    },
+     "iconv-lite": {
+       "version": "0.4.24",
+       "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz",
+@@ -11425,6 +11531,11 @@
+         "sha.js": "^2.4.8"
+       }
+     },
++    "pend": {
++      "version": "1.2.0",
++      "resolved": "https://registry.npmjs.org/pend/-/pend-1.2.0.tgz",
++      "integrity": "sha1-elfrVQpng/kRUzH89GY9XI4AelA="
++    },
+     "performance-now": {
+       "version": "2.1.0",
+       "resolved": "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz",
+@@ -15518,6 +15629,11 @@
+         "ipaddr.js": "1.8.0"
+       }
+     },
++    "proxy-from-env": {
++      "version": "1.1.0",
++      "resolved": "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz",
++      "integrity": "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="
++    },
+     "prr": {
+       "version": "1.0.1",
+       "resolved": "https://registry.npmjs.org/prr/-/prr-1.0.1.tgz",
+@@ -15581,6 +15697,21 @@
+       "resolved": "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz",
+       "integrity": "sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A=="
+     },
++    "puppeteer": {
++      "version": "1.20.0",
++      "resolved": "https://registry.npmjs.org/puppeteer/-/puppeteer-1.20.0.tgz",
++      "integrity": "sha512-bt48RDBy2eIwZPrkgbcwHtb51mj2nKvHOPMaSH2IsWiv7lOG9k9zhaRzpDZafrk05ajMc3cu+lSQYYOfH2DkVQ==",
++      "requires": {
++        "debug": "^4.1.0",
++        "extract-zip": "^1.6.6",
++        "https-proxy-agent": "^2.2.1",
++        "mime": "^2.0.3",
++        "progress": "^2.0.1",
++        "proxy-from-env": "^1.0.0",
++        "rimraf": "^2.6.1",
++        "ws": "^6.1.0"
++      }
++    },
+     "q": {
+       "version": "1.5.1",
+       "resolved": "https://registry.npmjs.org/q/-/q-1.5.1.tgz",
+@@ -15700,14 +15831,13 @@
+       }
+     },
+     "react": {
+-      "version": "16.7.0",
+-      "resolved": "https://registry.npmjs.org/react/-/react-16.7.0.tgz",
+-      "integrity": "sha512-StCz3QY8lxTb5cl2HJxjwLFOXPIFQp+p+hxQfc8WE0QiLfCtIlKj8/+5tjjKm8uSTlAW+fCPaavGFS06V9Ar3A==",
++      "version": "16.13.1",
++      "resolved": "https://registry.npmjs.org/react/-/react-16.13.1.tgz",
++      "integrity": "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==",
+       "requires": {
+         "loose-envify": "^1.1.0",
+         "object-assign": "^4.1.1",
+-        "prop-types": "^15.6.2",
+-        "scheduler": "^0.12.0"
++        "prop-types": "^15.6.2"
+       }
+     },
+     "react-app-polyfill": {
+@@ -15813,14 +15943,14 @@
+       }
+     },
+     "react-dom": {
+-      "version": "16.7.0",
+-      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-16.7.0.tgz",
+-      "integrity": "sha512-D0Ufv1ExCAmF38P2Uh1lwpminZFRXEINJe53zRAbm4KPwSyd6DY/uDoS0Blj9jvPpn1+wivKpZYc8aAAN/nAkg==",
++      "version": "16.13.1",
++      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-16.13.1.tgz",
++      "integrity": "sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==",
+       "requires": {
+         "loose-envify": "^1.1.0",
+         "object-assign": "^4.1.1",
+         "prop-types": "^15.6.2",
+-        "scheduler": "^0.12.0"
++        "scheduler": "^0.19.1"
+       }
+     },
+     "react-error-overlay": {
+@@ -17025,9 +17155,9 @@
+       }
+     },
+     "scheduler": {
+-      "version": "0.12.0",
+-      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.12.0.tgz",
+-      "integrity": "sha512-t7MBR28Akcp4Jm+QoR63XgAi9YgCUmgvDHqf5otgAj4QvdoBE4ImCX0ffehefePPG+aitiYHp0g/mW6s4Tp+dw==",
++      "version": "0.19.1",
++      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.19.1.tgz",
++      "integrity": "sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==",
+       "requires": {
+         "loose-envify": "^1.1.0",
+         "object-assign": "^4.1.1"
+@@ -19606,6 +19736,15 @@
+         "camelcase": "^5.0.0",
+         "decamelize": "^1.2.0"
+       }
++    },
++    "yauzl": {
++      "version": "2.10.0",
++      "resolved": "https://registry.npmjs.org/yauzl/-/yauzl-2.10.0.tgz",
++      "integrity": "sha1-x+sXyT4RLLEIb6bY5R+wZnt5pfk=",
++      "requires": {
++        "buffer-crc32": "~0.2.3",
++        "fd-slicer": "~1.1.0"
++      }
+     }
+   }
+ }
+diff --git a/src/.vs/slnx.sqlite b/src/.vs/slnx.sqlite
+new file mode 100644
+index 0000000000000000000000000000000000000000..69115e6da2c0fa244373e5710327def9c7d3af03
+GIT binary patch
+literal 90112
+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
+N1eW7*xdq<u`G1~Vs7e3;
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/App.tsx b/src/App.tsx
+index 0728518..74b73e9 100755
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -7,7 +7,9 @@ import './App.css';
+  * State declaration for <App />
+  */
+ interface IState {
+-  data: ServerRespond[],
++    data: ServerRespond[],
++    showGraph: boolean,
++    /** helps us change the static table into a live/updating graph**/
+ }
+ 
+ /**
+@@ -21,7 +23,10 @@ class App extends Component<{}, IState> {
+     this.state = {
+       // data saves the server responds.
+       // We use this state to parse data down to the child element (Graph) as element property
+-      data: [],
++        data: [],
++        showGraph: false,
++        /** initial state of the app not to show the graph yet, 
++         * only shows it when we click 'start streaming data**/
+     };
+   }
+ 
+@@ -29,19 +34,35 @@ class App extends Component<{}, IState> {
+    * Render Graph react component with state.data parse as property data
+    */
+   renderGraph() {
+-    return (<Graph data={this.state.data}/>)
++      if (this.state.showGraph) {
++          /** to ensure that the graph doesnt render until
++            * a user clicks the 'Start Streaming Data' button **/
++          return (<Graph data={this.state.data} />)
++      }
+   }
+ 
+   /**
+    * Get new data from server and update the state with the new data
+-   */
+-  getDataFromServer() {
+-    DataStreamer.getData((serverResponds: ServerRespond[]) => {
+-      // Update the state by creating a new array of data that consists of
+-      // Previous data in the state and the new data from server
+-      this.setState({ data: [...this.state.data, ...serverResponds] });
+-    });
+-  }
++   * Modified the method to contact the server and get data from it 
++   * continuously instead of just getting data from it once eveery time you click the button.
++   * Javascript does things in intervals, via the setInterval function
++  **/
++    getDataFromServer() {
++        let x = 0;
++        const interval = setInterval(() => { 
++            DataStreamer.getData((serverResponds: ServerRespond[]) => {
++                this.setState({
++                    data: serverResponds,
++                    showGraph: true,
++                    /** as soon as the data from the server comes back to the requestor**/
++                });
++            });
++            x++;
++            if (x > 1000) {
++                clearInterval(interval);
++            }
++        }, 100);
++    }
+ 
+   /**
+    * Render the App react component
+diff --git a/src/Graph.tsx b/src/Graph.tsx
+index ec1430e..031d0dd 100644
+--- a/src/Graph.tsx
++++ b/src/Graph.tsx
+@@ -14,8 +14,9 @@ interface IProps {
+  * Perspective library adds load to HTMLElement prototype.
+  * This interface acts as a wrapper for Typescript compiler.
+  */
+-interface PerspectiveViewerElement {
+-  load: (table: Table) => void,
++interface PerspectiveViewerElement extends HTMLElement {
++    load: (table: Table) => void,
++    /** extend HTMLElement to act as a HTMLElement**/
+ }
+ 
+ /**
+@@ -32,7 +33,7 @@ class Graph extends Component<IProps, {}> {
+ 
+   componentDidMount() {
+     // Get element to attach the table from the DOM.
+-    const elem: PerspectiveViewerElement = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
++    const elem = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
+ 
+     const schema = {
+       stock: 'string',
+@@ -44,12 +45,40 @@ class Graph extends Component<IProps, {}> {
+     if (window.perspective && window.perspective.worker()) {
+       this.table = window.perspective.worker().table(schema);
+     }
+-    if (this.table) {
+-      // Load the `table` in the `<perspective-viewer>` DOM reference.
++      if (this.table) {
++          // Load the `table` in the `<perspective-viewer>` DOM reference.
+ 
+-      // Add more Perspective configurations here.
+-      elem.load(this.table);
+-    }
++          // Add more Perspective configurations here.
++          elem.load(this.table);
++          elem.setAttribute('view', 'y_line');
++          /** visualize date as a continuous line graph to be the 
++           * final outcome, the closest one would be y_line**/
++          elem.setAttribute('column-pivots', '["stock"]');
++          /** column-pivots allows us to distinguish stock ABC with DEF. 
++           * We use ["stock"] as its corresponding value here. also defined in the schema object. 
++           * it is accessible to other attributes**/
++          elem.setAttribute('row-pivots', '["timestamp"]');
++          /** row-pivots takes care of the x-axis. allows us to map 
++           * each datapoint based on the timestamp it has
++           * w/o this the x-axis is blank**/
++          elem.setAttribute('columns', '["top_ask_price"]');
++          /** column allows us to focus on a particular part of a stocks's
++           * data along the y-axis. w/o this, the grpah will plot diff datapoints of 
++           * a stock i.i: top_ask_price, top_bid_price, stock, timestamp. 
++           * for this instance we only care about top_ask_price**/
++          elem.setAttribute('aggregates', `
++            { "stock": "distinct count",
++                "top_ask_price": "avg",
++                "top_bid_price": "avg",
++                "timestamp":"distinct count"
++            }`);
++          /** aggregates allows us to handle the duplicated data we 
++           * observed earlier and consolidated them as just one data point. we only
++           * want to consider a data point unique if it has a unique stick name and 
++           * timestamp. if there are duplicates like previously, we will
++           * average out the top_bid_prices and the top_ask_prices of these 
++           * 'similar' datapoints before treating them as one**/
++      }
+   }
+ 
+   componentDidUpdate() {
+-- 
+2.26.2.windows.1
+
